@@ -14,14 +14,12 @@ import (
 var FontFamily []string
 
 const (
-	dirpath = "mycaptcha/fonts"
-	//dirpath = "fonts"
 	pthSep=string(os.PathSeparator)
 )
 
 
 // ReadFonts  Read all fonts in the folder dirpath
-func ReadFonts()(err error){
+func LoadFonts(dirpath string)(err error){
 	dir,err:=ioutil.ReadDir(dirpath)
 	if err!=nil{
 		return err
@@ -52,7 +50,7 @@ func GetRandFont()(*truetype.Font,error){
 	return f, nil
 }
 // GetFont Returns the font by fontName
-func GetFont(fontName string)(*truetype.Font,error){
+func GetFont(dirpath,fontName string)(*truetype.Font,error){
 	fontBytes,err:=ioutil.ReadFile(dirpath+pthSep+fontName)
 	if err!=nil{
 		return &truetype.Font{},err

@@ -8,11 +8,11 @@ import (
 
 func TestCaptchaFont_ReadFonts(t *testing.T) {
 	
-	ReadFonts()
+	LoadFonts("foonts")
 	fmt.Println(FontFamily)
 }
 
 func TestCaptchaFont_GetRandFont(t *testing.T) {
-	ReadFonts()
-	fmt.Println(GetFont("actionj.ttf"))
+	LoadFonts("foonts")
+	fmt.Println(GetFont("fonts","actionj.ttf"))
 }

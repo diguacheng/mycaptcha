@@ -19,11 +19,7 @@ import (
 	"golang.org/x/image/font"
 )
 
-func init(){
-	ReadFonts()
-}
-
-const defaultSaveFolder = "mycaptcha/image/"
+const defaultSaveFolder = "."
 
 
 // CaptchaImage    text is the captcha writed in the image
