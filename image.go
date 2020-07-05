@@ -136,7 +136,7 @@ func (c *CaptchaImage) DrawNoise() {
 
 // DrawCirlce maxsize : the max redius the one circle may have ;count: the number of circle
 // The algorithm is parametric equations that x=r*sin(a) y=r*cos(a)
-func (c *CaptchaImage) DrawCirlce(maxsize int,count int) {
+func (c *CaptchaImage) DrawCircle(maxsize int,count int) {
 	u:=math.Pi/360
 	for i := 0; i < count; i++ {
 		radius:=float64(1+r.Intn(maxsize))
@@ -193,9 +193,9 @@ func GetCaptchaBase64(width, height, n int) (base64Str, text string) {
 	CaptchaImage := NewCaptchaImage(width, height, n, GetRandLightColor())
 	CaptchaImage.DrawSinLine()
 	CaptchaImage.DrawNoise()
-	CaptchaImage.DrawCirlce(height/5,width/height*3)
+	CaptchaImage.DrawCircle(height/5,width/height*3)
 	CaptchaImage.DrawText()
-	CaptchaImage.DrawCirlce(width/100,100)
+	CaptchaImage.DrawCircle(width/100,100)
 	base64Str = CaptchaImage.ImageToBaseb64(0)
 	text = CaptchaImage.text
 	return
@@ -209,9 +209,9 @@ func GetSingleCaptcha(width, height, n int) (pth, text string) {
 	CaptchaImage := NewCaptchaImage(width, height, n, GetRandLightColor())
 	CaptchaImage.DrawNoise()
 	CaptchaImage.DrawSinLine()
-	CaptchaImage.DrawCirlce(height/3,width/height*3)
+	CaptchaImage.DrawCircle(height/3,width/height*3)
 	CaptchaImage.DrawText()
-	CaptchaImage.DrawCirlce(width/100,100)
+	CaptchaImage.DrawCircle(width/100,100)
 	pth,err := CaptchaImage.SaveImage(".", 0)
 	if err!=nil{
 		return
