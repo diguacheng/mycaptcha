@@ -22,6 +22,10 @@ a captcha library writen in golang
 
 ### usage
 
+**注意**：使用前需要先导入字体库的字体，可通过函数`mycaptcha.LoadFonts(fontfolder)`实现。
+
+以下具体使用可参考example文件夹
+
 #### 1. `func GetSingleCaptcha(width, height, n int) (pth, text string)`
 
 生成png格式的验证码图片并存储，返回该图片的保存路径和验证码文本
